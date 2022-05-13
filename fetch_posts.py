@@ -23,5 +23,5 @@ def subreddit_post_scraper(subreddit, category, limit):
                       'subreddit', 'title', 'selftext', 'upvote_ratio', 'ups', 'downs', 'score'])
     return df.head(limit)
 
-print(subreddit_post_scraper('python', 'hot', 10))
+print(subreddit_post_scraper('TSLA', 'hot', 10))
 print(subreddit_post_scraper('python', 'new', 10))

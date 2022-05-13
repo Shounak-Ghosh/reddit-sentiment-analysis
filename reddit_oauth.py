@@ -1,8 +1,9 @@
 import requests
+import secrets as s
 
 # note that CLIENT_ID refers to 'personal use script' and SECRET_TOKEN to 'token'
 auth = requests.auth.HTTPBasicAuth(
-    'mzLs0S9lRAjFbFQ1X7yukg', 'QkZtRMVz6Gayrf2K4iTVu-ini4-Npg')
+    s.REDDIT_API_CLIENT_ID, s.REDDIT_API_CLIENT_SECRET)
 
 # here we pass our login method (password), username, and password
 data = {'grant_type': 'password',
@@ -10,7 +11,7 @@ data = {'grant_type': 'password',
         'password': 'FndqrUQk7s5Cztj'}
 
 # setup our header info, which gives reddit a brief description of our app
-headers = {'User-Agent': 'sentiment-analysis/0.0.1'}
+headers = {'User-Agent': s.REDDIT_API_USER_AGENT}
 
 # send our request for an OAuth token
 res = requests.post('https://www.reddit.com/api/v1/access_token',
